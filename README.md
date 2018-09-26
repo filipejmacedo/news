@@ -7,6 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Clone the repository using git:
 
 git clone https://github.com/filipejmacedo/news.git
+
 cd news
 
 ## Install Dependencies
