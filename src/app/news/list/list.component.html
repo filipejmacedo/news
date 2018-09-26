@@ -1,0 +1,17 @@
+
+<div class="mt-5 mb-5">
+  <h3>Last 10 news at BBC</h3>
+</div>
+<div class="card-columns">
+<div class="card"  *ngFor="let item of listNews" >
+  <img class="card-img-top" [src]="item.urlToImage" alt="{{item.title}}">
+  <div class="card-body">
+    <h5 class="card-title">{{item.title}}</h5>
+    <p class="card-text"><small>{{item.publishedAt | date:'fullDate'}}</small></p>
+    <p class="card-text"><small>{{item.description}}</small></p>
+    <a class="btn btn-primary" [routerLink]="['/view', item.url]">Read more at BBC</a>
+    <app-favorite [fav]="item" [flagFav]="item" (isFav)="markFav($event)" class='pull-right'></app-favorite>
+  </div>
+</div>
+</div>
+<!-- <app-pagination *ngIf="list" [list]="list" (pages)="loadPages($event)"></app-pagination> -->

@@ -1,0 +1,27 @@
+<div class="mt-5 mb-5">
+  <h3>My
+    <i class="fa fa-heart text-danger" aria-hidden="true"></i> news at BBC</h3>
+</div>
+<div *ngIf="listFavs.length === 0">
+  <h5>You don't have any news here... :(</h5>
+</div>
+<div *ngIf="listFavs.length > 0">
+  <h5>You have
+    <b>{{listFavs.length}}</b> marked fav.</h5>
+</div>
+<div class="row">
+<div class="col-4 col-sm mb-3" *ngFor="let fav of listFavs; let i = index">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title text-truncate">#{{i+1}} - {{fav.item.title }}</h5>
+      <p class="card-text text-truncate">
+        <img [src]="fav.item.urlToImage" width="100" class="img-fluid img-thumbnail float-left mr-1">
+        <small>{{fav.item.publishedAt | date:'fullDate'}}</small><br/>
+        <small>{{fav.item.description}}</small>
+      </p>
+      <p class="card-text pull-right"><i class="fa fa-trash-o" aria-hidden="true" (click)="remove(fav.item)"></i></p>
+      <a class="btn btn-sm btn-primary" [routerLink]="['/view', fav.item.url]">Read more at BBC</a>
+    </div>
+  </div>
+</div>
+</div>
